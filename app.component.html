@@ -1,0 +1,64 @@
+<!--The content below is only a placeholder and can be replaced.-->
+
+
+<div style="text-align:center">
+  
+  <h1>
+    Restful Tasks API <br>All The Tasks: <br>
+  </h1>
+
+  
+<button (click)="getTasksFrmSrvc($event)">Get Tasks</button>
+<button (click)="crtTask($event)">create Tasks</button>
+
+
+
+<div *ngFor="let task of tasks; index as i;" ><h2>- {{task['title']}} - <button (click)="showDisc($event,i,task)">Show</button>
+
+</h2>
+
+</div>
+<form id="newTask" (submit)="onSubmit()">
+    <!-- <P>{{newTask | json}} </P> -->
+    <h2>Add a new Task:</h2> <br>
+  Title: <input type="text" name="newTask.title" [(ngModel)]="newTask.title"/>
+  Description: <input type="text" name="newTask.description" [(ngModel)]="newTask.description"/>
+  <button>Add</button>
+</form>
+<br>
+<app-task *ngIf='selectedTask' [taskToShow]='selectedTask'></app-task>
+
+
+
+
+
+<!-- <div *ngIf="clicked" ><h2>details <br> </h2>
+
+
+  <div *ngFor="let desc of descs">
+      <h2>{{desc['description']}}  </h2>
+      <button (click)="clkEdit(desc)"   >Edit </button>
+      <button (click)="deleteTsk(desc)">Delete</button>
+
+
+  </div>
+  
+
+</div> -->
+
+
+
+
+<!-- <div *ngIf="frmClick">
+    
+  
+  <form id="updateTsk"  (submit)="editTask()" >
+        <P>{{updateTsk | json}} </P>
+        <h2>Update Task : <span>{{crntTsk['description']}}</span></h2> <br>
+        Title: <input type="text" name="uNew.title" [(ngModel)]="uNew.title"/>
+        Description: <input type="text" name="uNew.description" [(ngModel)]="uNew.description"/>
+      <button>Edit</button>
+    </form>
+
+
+</div>` -->
